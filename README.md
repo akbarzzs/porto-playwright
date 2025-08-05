@@ -1,21 +1,21 @@
-# 🧪 PORTO-PLAYWRIGHT
+# PORTO-PLAYWRIGHT
 
 Project automation testing menggunakan [Playwright](https://playwright.dev/) dengan struktur Page Object Model dan integrasi Allure Report untuk pelaporan hasil pengujian.
 
 ---
 
-## 📦 Struktur Folder
+## Struktur Folder
 
 ```
 PORTO-PLAYWRIGHT/
 │
-├── .github/               # Konfigurasi CI/CD GitHub Actions (jika ada)
-├── allure-report/         # Output laporan hasil pengujian (static HTML)
-├── allure-results/        # File mentah hasil pengujian untuk Allure
+├── .github/               
+├── allure-report/         
+├── allure-results/        
 ├── data/
-│   └── testData.json      # Data untuk pengujian
-├── node_modules/          # Dependency project
-├── pages/                 # Page Object Model (POM)
+│   └── testData.json      
+├── node_modules/          
+├── pages/                 
 │   ├── cartPage.js
 │   ├── checkoutComplete.js
 │   ├── checkoutInformation.js
@@ -24,19 +24,19 @@ PORTO-PLAYWRIGHT/
 │   ├── productDetailPage.js
 │   ├── productsPage.js
 │   └── sidebar.js
-├── playwright-report/     # Laporan default dari Playwright (HTML)
-├── test-results/          # Output tambahan dari test
-├── tests/                 # File berisi test case (*.spec.js)
+├── playwright-report/     
+├── test-results/          
+├── tests/                 
 ├── .gitignore
 ├── package.json
 ├── package-lock.json
 ├── playwright.config.js
-└── README.md              # << Tambahkan file ini
+└── README.md              
 ```
 
 ---
 
-## 🚀 Cara Menjalankan Playwright
+## Cara Menjalankan Playwright
 
 ### 1. Install Dependency
 
@@ -44,11 +44,11 @@ PORTO-PLAYWRIGHT/
 npm install
 ```
 
-> Pastikan `playwright`, `@playwright/test`, dan `allure-commandline` sudah ada di `package.json`.
+Pastikan `playwright`, `@playwright/test`, dan `allure-commandline` sudah ada di `package.json`.
 
 ---
 
-### 2. Install Browsers (hanya jika belum di-install)
+### 2. Install Browsers
 
 ```bash
 npx playwright install
@@ -64,10 +64,16 @@ Jalankan seluruh test:
 npx playwright test
 ```
 
-Menjalankan test dengan tag tertentu:
+Menjalankan test dengan tag GUI:
 
 ```bash
-npx playwright test --grep "@checkout"
+npx playwright test --headed
+```
+
+Menjalankan test file tertentu:
+
+```bash
+npx playwright test tests/namaFile.spec.js
 ```
 
 ---
@@ -82,20 +88,18 @@ npx playwright show-report
 
 ---
 
-## 📊 Generate Allure Report
+## Generate Allure Report
 
 ### 1. Jalankan test dan simpan hasil untuk Allure
 
 ```bash
-npx playwright test --reporter=line,allure-playwright
+npx playwright test --reporter=allure-playwright
 ```
-
-> Akan mengisi folder `allure-results/`.
 
 ### 2. Generate Allure Report
 
 ```bash
-npx allure generate allure-results --clean -o allure-report
+npx allure generate allure-results -o allure-report --clean
 ```
 
 ### 3. Buka Allure Report
@@ -106,7 +110,7 @@ npx allure open allure-report
 
 ---
 
-## 🧩 Catatan Tambahan
+## Catatan Tambahan
 
 - Gunakan folder `data/testData.json` untuk menyimpan data dinamis atau test data.
 - Semua file test case ada di dalam folder `tests/` dan dipisahkan sesuai fitur.
