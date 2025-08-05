@@ -3,13 +3,17 @@ const { LoginPage } = require('../../pages/loginPage');
 const { ProductsPage } = require('../../pages/productsPage');
 const { ProductDetailPage } = require('../../pages/productDetailPage');
 const { CartPage } = require('../../pages/cartPage');
+const testData = require('../../data/testData.json');
 
 test.beforeEach(async ({ page }) => {
   const loginPage = new LoginPage(page);
   const productsPage = new ProductsPage(page);
 
   await loginPage.goto();
-  await loginPage.login('standard_user', 'secret_sauce');
+  await loginPage.login(
+    testData.users.standard.username,
+    testData.users.standard.password
+  ); 
   await productsPage.clickFirstProductTitle();
 });
 

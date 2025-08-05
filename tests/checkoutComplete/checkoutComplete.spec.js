@@ -5,12 +5,7 @@ const { CartPage } = require('../../pages/cartPage');
 const { CheckoutInformationPage } = require('../../pages/checkoutInformation');
 const { CheckoutOverviewPage } = require('../../pages/checkoutOverview');
 const { CheckoutCompletePage } = require('../../pages/checkoutComplete');
-
-const USERNAME = 'standard_user';
-const PASSWORD = 'secret_sauce';
-const FIRST_NAME = 'akbar';
-const LAST_NAME = 'tampan';
-const POSTAL_CODE = '12345';
+const testData = require('../../data/testData.json');
 
 test.beforeEach(async ({ page }) => {
   const loginPage = new LoginPage(page);
@@ -20,11 +15,18 @@ test.beforeEach(async ({ page }) => {
   const checkoutOverviewPage = new CheckoutOverviewPage(page);
 
   await page.goto('https://www.saucedemo.com/');
-  await loginPage.login(USERNAME, PASSWORD);
+  await loginPage.login(
+    testData.users.standard.username,
+    testData.users.standard.password
+  );  
   await productsPage.addFirstProductToCart();
   await productsPage.goToCart();
   await cartPage.clickCheckout();
-  await checkoutInformationPage.fillForm(FIRST_NAME, LAST_NAME, POSTAL_CODE);
+  await checkoutInformationPage.fillForm(
+    testData.checkout.firstName,
+    testData.checkout.lastName,
+    testData.checkout.postalCode
+  );  
   await checkoutInformationPage.clickContinue();
   await checkoutOverviewPage.clickFinish();
 });

@@ -3,14 +3,15 @@ const { LoginPage } = require('../../pages/loginPage');
 const { CartPage } = require('../../pages/cartPage');
 const { ProductDetailPage } = require('../../pages/productDetailPage');
 const { ProductsPage } = require('../../pages/productsPage');
-
-const USERNAME = 'standard_user';
-const PASSWORD = 'secret_sauce';
+const testData = require('../../data/testData.json');
 
 test.beforeEach(async ({ page }) => {
   const loginPage = new LoginPage(page);
   await loginPage.goto();
-  await loginPage.login(USERNAME, PASSWORD);
+  await loginPage.login(
+    testData.users.standard.username,
+    testData.users.standard.password
+  );  
 });
 
 test('Produk dapat dihapus dari Keranjang', async ({ page }) => {

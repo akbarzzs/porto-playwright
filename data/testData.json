@@ -1,0 +1,17 @@
+{
+  "users": {
+    "standard": {
+      "username": "standard_user",
+      "password": "secret_sauce"
+    },
+    "invalid_standard": {
+      "username": "standarduser",
+      "password": "secretsauce"
+    }
+  },
+  "checkout": {
+    "firstName": "akbar",
+    "lastName": "tampan",
+    "postalCode": "12345"
+  }
+}

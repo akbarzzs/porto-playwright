@@ -2,14 +2,15 @@ const { test, expect } = require('@playwright/test');
 const { LoginPage } = require('../../pages/loginPage');
 const { ProductsPage } = require('../../pages/productsPage');
 const { ProductDetailPage } = require('../../pages/productDetailPage');
-
-const USERNAME = 'standard_user';
-const PASSWORD = 'secret_sauce';
+const testData = require('../../data/testData.json');
 
 test.beforeEach(async ({ page }) => {
   const loginPage = new LoginPage(page);
   await loginPage.goto();
-  await loginPage.login(USERNAME, PASSWORD);
+  await loginPage.login(
+    testData.users.standard.username,
+    testData.users.standard.password
+  ); 
 });
 
 test('Produk dapat ditambahkan ke dalam Keranjang', async ({ page }) => {
