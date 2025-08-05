@@ -4,7 +4,7 @@ Project automation testing menggunakan [Playwright](https://playwright.dev/) den
 
 ---
 
-## Struktur Folder
+## STRUKTUR FOLDER
 
 ```
 PORTO-PLAYWRIGHT/
@@ -31,7 +31,7 @@ PORTO-PLAYWRIGHT/
 
 ---
 
-## Cara Menjalankan Playwright
+## CARA MENJALANKAN PLAYWRIGHT
 
 ### 1. Install Dependency
 
@@ -83,7 +83,7 @@ npx playwright show-report
 
 ---
 
-## Generate Allure Report
+## GENERATE ALLURE REPORT
 
 ### 1. Jalankan test dan simpan hasil untuk Allure
 
@@ -105,7 +105,7 @@ npx allure open allure-report
 
 ---
 
-## Catatan Tambahan
+## CATATAN TAMBAHAN
 
 - Gunakan folder `data/testData.json` untuk menyimpan data dinamis atau test data.
 - Semua file test case ada di dalam folder `tests/` dan dipisahkan sesuai fitur.
