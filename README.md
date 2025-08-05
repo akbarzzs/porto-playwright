@@ -9,9 +9,7 @@ Project automation testing menggunakan [Playwright](https://playwright.dev/) den
 ```
 PORTO-PLAYWRIGHT/
 │
-├── .github/               
-├── allure-report/         
-├── allure-results/        
+├── .github/                      
 ├── data/
 │   └── testData.json      
 ├── node_modules/          
