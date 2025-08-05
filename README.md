@@ -21,9 +21,7 @@ PORTO-PLAYWRIGHT/
 │   ├── loginPage.js
 │   ├── productDetailPage.js
 │   ├── productsPage.js
-│   └── sidebar.js
-├── playwright-report/     
-├── test-results/          
+│   └── sidebar.js       
 ├── tests/                 
 ├── .gitignore
 ├── package.json
